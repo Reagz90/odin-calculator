@@ -1,37 +1,37 @@
-//variables for user input, 1st number, 2nd number & operator
-let firstNumber; 
-let secondNumber; 
-let operator; 
-
-//Calculator functions for basic math operators
-function add(num1, num2) {
-    return num1 + num2; 
+// Function that display value
+function dis(val) {
+    document.getElementById("result").value += val
 }
 
-function subtract(num1, num2) { 
-    return num1 - num2; 
+function myFunction(event) {
+    if (event.key == '0' || event.key == '1' 
+        || event.key == '2' || event.key == '3'
+        || event.key == '4' || event.key == '5' 
+        || event.key == '6' || event.key == '7'
+        || event.key == '8' || event.key == '9' 
+        || event.key == '+' || event.key == '-'
+        || event.key == '*' || event.key == '/')
+        document.getElementById("result").value += event.key;
 }
 
-function multiply(num1, num2) {
-    return num1 * num2; 
-}
-
-function divide(num1, num2) {
-    return num1 / num2; 
-}
-
-/*operate function, switch statement calls appropriate math function
-depending on operator passed in*/
-
-function operate(operator, num1, num2) { 
-    switch (operator) {
-        case '+':
-            return add(num1, num2);
-        case '-':
-            return subtract(num1, num2);
-        case '*':
-            return multiply(num1, num2); 
-        case '/':
-            return divide(num1, num2); 
+var cal = document.getElementById("calcu");
+cal.onkeyup = function (event) {
+    if (event.keyCode === 13) {
+        console.log("Enter");
+        let x = document.getElementById("result").value
+        console.log(x);
+        solve();
     }
+}
+
+// Function that evaluates the digit and return result
+function solve() {
+    let x = document.getElementById("result").value
+    let y = math.evaluate(x)
+    document.getElementById("result").value = y
+}
+
+// Function that clear the display
+function clr() {
+    document.getElementById("result").value = ""
 }
